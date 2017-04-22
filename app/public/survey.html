@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder Survey</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="friends.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 id = "heading" class="text-center"><span class="glyphicon glyphicon-fire"></span> Friend Finder</h1>
+      <hr>
+      <h2 class="text-center">Find a compatible friend!</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- Reservation Page -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Friends Finder Survey</h4>
+          </div>
+          <div class="panel-body">
+
+            <form role="form">
+
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="photolink">Photo Link</label>
+                <input type="text" class="form-control" id="photolink" required>
+              </div>
+
+              <h5>Please select the answer that best fits you:  </h5>
+              <div class = "well">
+                <p class = "question">Your mind is always buzzing with unexplored ideas and plans.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques1" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques1" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques1" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques1" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques1" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+              <div class = "well">
+                <p class = "question">Generally speaking, you rely more on your experience than your imagination.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques2" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques2" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques2" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques2" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques2" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+            <div class = "well">
+                <p class = "question">You find it easy to stay relaxed and focused even when there is some pressure.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques3" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques3" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques3" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques3" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques3" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+              <div class = "well">
+                <p class = "question">You rarely do something just out of sheer curiosity.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques4" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques4" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques4" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques4" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques4" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+            <div class = "well">
+                <p class = "question">People can rarely upset you.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques5" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques5" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques5" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques5" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques5" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+
+            <div class = "well">
+                <p class = "question">It is often difficult for you to relate to other people’s feelings.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques6" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques6" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques6" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques6" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques6" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+            <div class = "well">
+                <p class = "question">In a discussion, truth should be more important than people’s sensitivities.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques7" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques7" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques7" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques7" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques7" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+            <div class = "well">
+                <p class = "question">You rarely get carried away by fantasies and ideas.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques8" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques8" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques8" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques8" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques8" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+            <div class = "well">
+                <p class = "question">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques9" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques9" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques9" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques9" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques9" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+            <div class = "well">
+                <p class = "question">You feel more energetic after spending time with a group of people.</p>
+                 <div class="form-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="ques10" value="5">Strongly Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques10" value="4">Somewhat Agree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques10" value="3">Neutral
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques10" value="2">Somewhat Disagree
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="ques10" value="1">Strongly Disagree
+                  </label>
+                </div>
+              </div>
+
+          <button type="submit" class="btn btn-primary submit">Submit</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+ var answerArr = [];
+    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+    $( "form" ).submit(function( event ) {
+      event.preventDefault();
+      answerArr =  $( this ).serializeArray();
+      console.log("answerArr is " + answerArr);
+     
+      
+      // Here we grab the form elements
+      var friend = {
+        Name: $("#name").val().trim(),
+        photo: $("#photolink").val().trim(),
+        answer: []
+      };
+      console.log(answerArr.length + " " + answerArr[0].value );
+      for (var i = 0; i < answerArr.length; i++){
+        // console.log("line 305 " + i+ " " + answerArr[i].value );
+        friend.answer[i] = answerArr[i].value;
+      }
+      console.log("line 306 " + JSON.stringify(friend));
+
+      // This line is the magic. It"s very similar to the standard ajax function we used.
+      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+      // depending on if a tables is available or not.
+      $.post("/api/friends", friend,
+        function(data) {
+          // If a table is available... tell user they are booked.
+          if (data) {
+            console.log(data);
+          }
+
+          // If a table is available... tell user they on the waiting list.
+          else {
+            alert("Sorry you are on the wait list");
+          }
+
+          // Clear the form when submitting
+          // $("#reserve-name").val("");
+          // $("#reserve-phone").val("");
+          // $("#reserve-email").val("");
+          // $("#reserve-unique-id").val("");
+
+        });
+
+    });
+
+</script>
