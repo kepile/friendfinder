@@ -267,11 +267,29 @@
 
       </div>
     </div>
+<!-- Modal -->
+  <div id="Modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title"><strong>YOU HAVE A MATCH</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="friendName"></h2>
+          <img id="friendImg" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
 
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/afhaque/HotRestaurant">GitHub Repo</a></p>
+        <p><a href="/api/friends">API Friends Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/kepile/friendfinder">GitHub Repo</a></p>
       </div>
     </footer>
 
@@ -296,7 +314,7 @@
       
       // Here we grab the form elements
       var friend = {
-        Name: $("#name").val().trim(),
+        name: $("#name").val().trim(),
         photo: $("#photolink").val().trim(),
         answer: []
       };
@@ -320,14 +338,10 @@
 
           // If a table is available... tell user they on the waiting list.
           else {
-            alert("Sorry you are on the wait list");
+            alert("Sorry, there are not friends for you at this time.");
           }
 
-          // Clear the form when submitting
-          // $("#reserve-name").val("");
-          // $("#reserve-phone").val("");
-          // $("#reserve-email").val("");
-          // $("#reserve-unique-id").val("");
+          
 
         });
 

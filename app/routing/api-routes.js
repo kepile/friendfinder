@@ -33,17 +33,19 @@ module.exports = function(app) {
     // It will do this by sending out the value "true" have a table
    console.log("posting file line 34")
    
-   console.log("line 36 " + req.body);
+   console.log("line 36 " + JSON.stringify(req.body));
    console.log("line 37 " + friends.length);
    var results = [];
    for (var i = 0; i < friends.length; i++) {
     var total = 0;
 
       console.log(friends[i].name + "line 42");
+       console.log(friends[i].answer + "line 42");
+       console.log(friends[i].answer[0]);
     for (var s = 0; s < friends[i].answer.length; s++){
-      console.log("friend " + friends[i].answer[s].value + " new " + req.body.value[s]);
-      console.log(friends[i].answer[s].value-newfriend.value[s]);
-      total += Math.abs(friends[i].answer[s].value - req.body.value[s]);
+      // console.log("friend " + friends[i].answer[s] + " new " + req.body.value[s]);
+      // console.log(friends[i].answer[s] - req.body.value[s]);
+      total += Math.abs(friends[i].answer[s] - req.body.answer[s]);
      }
      console.log("line 48 total " + total);
      if (results.length <= 0 || total === results[0].total){
