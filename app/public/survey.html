@@ -289,7 +289,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friends">API Friends Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/kepile/friendfinder">GitHub Repo</a></p>
+        <!-- <p><a href="/api/friends">API Friends Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/kepile/friendfinder">GitHub Repo</a></p> -->
       </div>
     </footer>
 
@@ -304,8 +304,7 @@
     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
     // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
     // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
-
+    
     $( "form" ).submit(function( event ) {
       event.preventDefault();
       answerArr =  $( this ).serializeArray();
@@ -313,37 +312,54 @@
      
       
       // Here we grab the form elements
-      var friend = {
+      var friend = [{
         name: $("#name").val().trim(),
         photo: $("#photolink").val().trim(),
         answer: []
-      };
-      console.log(answerArr.length + " " + answerArr[0].value );
+      }];
+      
       for (var i = 0; i < answerArr.length; i++){
         // console.log("line 305 " + i+ " " + answerArr[i].value );
         friend.answer[i] = answerArr[i].value;
       }
-      console.log("line 306 " + JSON.stringify(friend));
+      // console.log("line 306 " + JSON.stringify(friend));
 
-      // This line is the magic. It"s very similar to the standard ajax function we used.
-      // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-      // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-      // depending on if a tables is available or not.
-      $.post("/api/friends", friend,
-        function(data) {
-          // If a table is available... tell user they are booked.
+      
+      // this is the "ajax" call.  provide to server: URL, the object we want to send, and a "callback".
+      // The callback is the response of the server - what the server returns. Api-routes  "returns" the information for friend matches
+      
+      // $.post("/api/friends", friend,
+      //   function(data) {
+          // Save the data into the friends database
+          // check existing friends for the closest match
+          data = [{name:  "Bugs Bunny", 
+                  photo: "https://www.google.com/search?q=bugs+bunny&rlz=1C1CHBF_enUS725US725&espv=2&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi-ue6QmrfTAhXDSyYKHcgTBmgQ_AUIBigB&biw=1536&bih=759", 
+                  total: 3}
+                ];
+
+          // if data exists, display the friend(s) in a modal
           if (data) {
             console.log(data);
+            // if multiple friends found, loop through to show all friends
+            for (var i= 0; i < data.length; i++){
+              console.log("in for loop");
+              // use jquery to put data into the modal
+              $("#friendName").text(data[i].name);
+              $("#friendImg").attr("src", data[i].photo);
+              $("#friendImg").attr("src", data[i].photo);
+              $(".modal-footer").text(i + " of " + data.length + " matches.");
+             //display modal
+              $("#Modal").modal('toggle');
+            }
           }
-
-          // If a table is available... tell user they on the waiting list.
+          // if no matches were returned, display message to user
           else {
             alert("Sorry, there are not friends for you at this time.");
           }
 
           
 
-        });
+        // });
 
     });
 
