@@ -55,7 +55,7 @@ var friendsArray = [{
    }, 
    {
    "name": "Bugs Bunny",
-   "photo": "https://www.google.com/search?q=bugs+bunny&rlz=1C1CHBF_enUS725US725&espv=2&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi-ue6QmrfTAhXDSyYKHcgTBmgQ_AUIBigB&biw=1536&bih=759",
+   "photo": "https://static.giantbomb.com/uploads/original/0/6393/528841-bugs_bunny_neener.jpg",
    "answer": [
    "1",
    "2",
