@@ -20,3 +20,16 @@ body {
 	);
     background-blend-mode: multiply;
 }
+
+#glyph {
+  height: 44px;
+ /* margin-right: -16px;
+  margin-bottom: -6px;
+ */ vertical-align:text-bottom; /* align the text */
+}
+
+#home {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
