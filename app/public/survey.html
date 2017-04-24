@@ -16,6 +16,8 @@
   <div class="container">
 
     <div class="jumbotron">
+
+    <!-- HEADING FOR PAGE -->
      <div class="text-right">
         <a href="/"><button type="button" id = "home" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
       </div>
@@ -31,7 +33,7 @@
     <div class="row">
       <div class="col-lg-12">
 
-        <!-- Reservation Page -->
+        <!-- SURVEY QUESTIONS -->
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">Friends Finder Survey</h4>
@@ -50,6 +52,7 @@
                 <input type="text" class="form-control" id="photolink" required>
               </div>
 
+            <!-- BEGINNING OF QUESTIONS WITH RADIO BUTTONS -->
               <h5>Please select the answer that best fits you:  </h5>
               <div class = "well">
                 <p class = "question">Your mind is always buzzing with unexplored ideas and plans.</p>
@@ -177,6 +180,7 @@
                   </label>
                 </div>
               </div>
+
             <div class = "well">
                 <p class = "question">In a discussion, truth should be more important than people’s sensitivities.</p>
                  <div class="form-group">
@@ -238,7 +242,7 @@
                     <input type="radio" name="ques9" value="1">Strongly Disagree
                   </label>
                 </div>
-              </div>
+            </div>
 
             <div class = "well">
                 <p class = "question">You feel more energetic after spending time with a group of people.</p>
@@ -259,22 +263,22 @@
                     <input type="radio" name="ques10" value="1">Strongly Disagree
                   </label>
                 </div>
-              </div>
-
-          <button type="submit" class="btn btn-primary submit">Submit</button>
-            </form>
+            </div>
+            <!-- BUTTON TO SUBMIT SURVEY -->
+            <button type="submit" class="btn btn-primary submit">Submit</button>
+          </form>
 
           </div>
         </div>
 
       </div>
     </div>
-<!-- Modal -->
-  <div id="Modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+      <!-- Modal -->
+      <div id="Modal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
       <!-- Modal content-->
-      <div class="modal-content">
+     <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 class="modal-title"><strong>YOU HAVE A MATCH</strong></h2>
@@ -288,7 +292,7 @@
         </div>
       </div>
 
-
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
         <p><a href="/api/friends">API Friends Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/kepile/friendfinder">GitHub Repo</a></p>
@@ -300,7 +304,7 @@
 </body>
 </html>
 
-<!-- JAVASCRIPT TO HANDLE HOW FORM DATA IS SENT TO OUR SERVER -->
+<!-- JAVASCRIPT TO HANDLE HOW FORM DATA IS SENT TO THE SERVER -->
 <script type="text/javascript">
  var answerArr = [];
     // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
@@ -309,11 +313,11 @@
     
     $( "form" ).submit(function( event ) {
       event.preventDefault();
+      // grab the answers from the radio button questions
       answerArr =  $( this ).serializeArray();
-      console.log("answerArr is " + JSON.stringify(answerArr));
+      // console.log("answerArr is " + JSON.stringify(answerArr));
      
-      
-      // Here we grab the form elements
+      // grab the rest of the form elements
       var friend = {
         name: $("#name").val().trim(),
         photo: $("#photolink").val().trim(),
@@ -321,15 +325,11 @@
       };
       
       for (var i = 0; i < answerArr.length; i++){
-        
-        
-
+        // store the radio button values in an array to be sent to server
         friend.answer[i] = answerArr[i].value;
       }
       
-
-      
-      // Grab the URL of the website
+      // Grab the URL of the website which may vary for deployment
       var currentURL = window.location.origin;
 
       // this is the "ajax" call.  provide to server: URL, the object we want to send, and a "callback".
@@ -337,27 +337,20 @@
   
       $.post(currentURL + "/api/friends", friend,
         function(data) {
-          // Save the data into the friends database
-          // check existing friends for the closest match
-          // data = [{name:  "Bugs Bunny", 
-          //         photo: "https://www.google.com/search?q=bugs+bunny&rlz=1C1CHBF_enUS725US725&espv=2&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi-ue6QmrfTAhXDSyYKHcgTBmgQ_AUIBigB&biw=1536&bih=759", 
-          //         total: 3}
-          //       ];
+          // This post will Save the data into the friends database
+          // check existing friends for the closest match and return in data
 
-          // if data exists, display the friend(s) in a modal
+          // if data exists, display the friend in a modal
           if (data) {
-            console.log(data);
-            // if multiple friends found, loop through to show all friends
-            for (var i= 0; i < data.length; i++){
-              console.log("in for loop");
+            // console.log(data);
+             // multiple friends may be returned but only one will display right now
               // use jquery to put data into the modal
-              $("#friendName").text(data[i].name);
-              $("#friendImg").attr("src", data[i].photo);
-              $("#friendImg").attr("src", data[i].photo);
-              $(".modal-footer").text(i + " of " + data.length + " matches.");
-             //display modal
+              $("#friendName").text(data[0].name);
+              $("#friendImg").attr("src", data[0].photo);
+              $("#friendImg").attr("src", data[0].photo);
+              //display modal
               $("#Modal").modal('toggle');
-            }
+            
           }
           // if no matches were returned, display message to user
           else {

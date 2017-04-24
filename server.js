@@ -1,3 +1,6 @@
+//SET UP THE SERVER TO LISTEN AT A PORT 
+// INCLUDE DEPENDENCIES AND ROUTING FILES
+
 // Dependencies
 // =============================================================
 var express = require("express");

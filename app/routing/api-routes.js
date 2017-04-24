@@ -29,30 +29,32 @@ module.exports = function(app) {
  // ---------------------------------------------------------------------------
 
   app.post("/api/friends", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-   console.log("posting file line 34")
-   
-   console.log("line 36 " + JSON.stringify(req.body));
-   console.log("line 37 " + friends.length);
-   var results = [];
-   for (var i = 0; i < friends.length; i++) {
+    // Note the code here. Our "server" will respond to requests with a friend who is a match
+    // and store the survey results under a new friend.
+    
+    // This array will hold the friend matches
+    var results = [];
+
+    // Loop through all the friends in the api
+    for (var i = 0; i < friends.length; i++) {
+      // create this variable to store the total of differences in the answer values
     var total = 0;
 
-      console.log(friends[i].name + "line 42");
-       console.log(friends[i].answer + "line 42");
-       console.log(friends[i].answer[0]);
+    // loop through all the answers for the friend at index i
+    // total the abs diff difference in answer values between friend i and the new survey
     for (var s = 0; s < friends[i].answer.length; s++){
-      // console.log("friend " + friends[i].answer[s] + " new " + req.body.value[s]);
-      // console.log(friends[i].answer[s] - req.body.value[s]);
       total += Math.abs(friends[i].answer[s] - req.body.answer[s]);
      }
-     console.log("line 48 total " + total);
+  // if no results have been stored or the total just tallied is the same as the 
+  // friend that is stored already, push the new total
      if (results.length <= 0 || total === results[0].total){
       results.push({name: friends[i].name, 
                     photo: friends[i].photo, 
                     total: total});
       } else 
+      // else if the new total is less than the results stored in the array,
+      // replace the values in storage with the new match because
+      // the new total is a better friend match
      if (total < results[0].total){
       results = [{name: friends[i].name, 
                   photo: friends[i].photo, 
@@ -60,7 +62,10 @@ module.exports = function(app) {
                 ];
      }
     }
+
+    // add the new friend and survey to the api object
       friends.push(req.body);
+      // respond to the post with the matches found
       res.json(results);
     
   });
