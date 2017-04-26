@@ -3,6 +3,7 @@
 // We are linking our routes to  "data" sources.
 // This data source holds array of information on friends available to match
 // ===============================================================================
+var express = require("express");
 
 var friends = require("../data/friends");
 var bodyParser = require("body-parser");
